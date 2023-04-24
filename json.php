@@ -1,6 +1,6 @@
 <?php
 require_once('./vendor/autoload.php');
-$authKeyOpenAI = "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";
+$authKeyOpenAI = "";
 
 try {
     $client = OpenAI::client($authKeyOpenAI);
