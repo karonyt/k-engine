@@ -1,28 +1,29 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>ChatGPT Example</title>
-  </head>
-  <body>
-    <h1>ChatGPT Example</h1>
-    <input type="text" id="question"></p>
-    <input type="button" value="" onclick="OnButtonClick();"/><br />
-    <div id="chat"></div>
-    <script src="https://cdn.jsdelivr.net/npm/@openai/chat-api@1.0.0-beta.3/dist/chat.js"></script>
-    <script>
-      function OnButtonClick(){
-        const model = 'text-davinci-002';
-        const apiKey = "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"
-        const chat = new OpenAIChat({
-          model: model,
-          apiKey: apiKey,
-          container: document.getElementById('chat')
-        });
-        chat.addUserMessage(document.getElementById("question").innerHTML);
-        
-      }  
-      
-    </script>
-  </body>
-</html>
+<form id="openai-form">
+    <label for="prompt">Prompt:</label>
+    <textarea id="prompt" name="prompt"></textarea>
+    <br>
+    <label for="model">Model:</label>
+    <input type="text" id="model" name="model" value="text-davinci-003">
+    <br>
+    <label for="temperature">Temperature:</label>
+    <input type="number" id="temperature" name="temperature" value="0.7">
+    <br>
+    <label for="max_tokens">Max Tokens:</label>
+    <input type="number" id="max_tokens" name="max_tokens" value="1024">
+    <br>
+    <label for="stop">Stop:</label>
+    <input type="text" id="stop" name="stop" value="None">
+    <br>
+    <label for="top_p">Top P:</label>
+    <input type="number" id="top_p" name="top_p" value="1">
+    <br>
+    <label for="frequency_penalty">Frequency Penalty:</label>
+    <input type="number" id="frequency_penalty" name="frequency_penalty" value="0">
+    <br>
+    <label for="presence_penalty">Presence Penalty:</label>
+    <input type="number" id="presence_penalty" name="presence_penalty" value="0">
+    <br><br>
+    <button type="submit">Submit</button>
+</form>
+
+<div id="response"></div>
