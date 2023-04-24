@@ -6,6 +6,7 @@
   </head>
   <body>
     <h1>ChatGPT Example</h1>
+    <input type="text" id="question"></p>
     <input type="button" value="" onclick="OnButtonClick();"/><br />
     <div id="chat"></div>
     <script src="https://cdn.jsdelivr.net/npm/@openai/chat-api@1.0.0-beta.3/dist/chat.js"></script>
@@ -18,7 +19,7 @@
           apiKey: apiKey,
           container: document.getElementById('chat')
         });
-        chat.addUserMessage(document.getElementById("output").innerHTML);
+        chat.addUserMessage(document.getElementById("question").innerHTML);
         
       }  
       
