@@ -6,20 +6,22 @@
   </head>
   <body>
     <h1>ChatGPT Example</h1>
+    <input type="button" value="" onclick="OnButtonClick();"/><br />
     <div id="chat"></div>
     <script src="https://cdn.jsdelivr.net/npm/@openai/chat-api@1.0.0-beta.3/dist/chat.js"></script>
     <script>
-      const model = 'text-davinci-002';
-      const prompt = 'Hello!';
-      const apiKey = "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"
-
-      const chat = new OpenAIChat({
-        model: model,
-        apiKey: apiKey,
-        container: document.getElementById('chat')
-      });
-
-      chat.addUserMessage(prompt);
+      function OnButtonClick(){
+        const model = 'text-davinci-002';
+        const apiKey = "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"
+        const chat = new OpenAIChat({
+          model: model,
+          apiKey: apiKey,
+          container: document.getElementById('chat')
+        });
+        chat.addUserMessage(document.getElementById("output").innerHTML);
+        
+      }  
+      
     </script>
   </body>
 </html>
