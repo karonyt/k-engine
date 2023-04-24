@@ -27,3 +27,21 @@
 </form>
 
 <div id="response"></div>
+
+<script>
+    document.querySelector("#openai-form").addEventListener("submit", function(event) {
+        event.preventDefault();
+        var formData = new FormData(event.target);
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "json.php", true);
+        xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var json = JSON.parse(xhr.responseText);
+                document.querySelector("#response").innerHTML = json[0].text;
+            }
+        }
+        xhr.send(formData);
+    });
+</script>
